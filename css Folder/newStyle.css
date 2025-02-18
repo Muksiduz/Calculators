@@ -94,8 +94,7 @@
     padding: 20px;
     margin-top: 20px;
   }
-  .single-input {
-  }
+
   .two-inputs {
     display: flex;
     gap: 5px;
@@ -121,7 +120,7 @@
     margin-bottom: 5px;
   }
   .capitalGainPara {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 300;
     color: gray;
     margin-bottom: 5px;
@@ -160,8 +159,7 @@
     padding: 20px;
     margin-top: 20px;
   }
-  .chart-top {
-  }
+
   .written-text {
     font-size: 20px;
     color: #f1b427;

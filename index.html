@@ -39,7 +39,7 @@
             <option class="activeSelector" value="SIP Calculator with Taxes">
               SIP Calculator with Taxes
             </option>
-            <option value="Income Tax Calculator">Income Tax Calculator</option>
+            <!-- <option value="Income Tax Calculator">Income Tax Calculator</option> -->
           </select>
         </div>
       </div>
@@ -83,7 +83,7 @@
             class="long-inputs"
             type="number"
             id="inflationInput"
-            placeholder="Enter Inflation Rate : India 5.7%"
+            placeholder="Enter Inflation Rate : India 4.31%"
           />
         </div>
         <div class="single-input">
@@ -100,9 +100,9 @@
           <h1 class="capitalGain">Capital Gain Tax</h1>
           <p class="capitalGainPara">
             Tax-Percentage, sas tax will be automatically calculated if you
-            don’t know the value -According to India Budget 2025, tax as 12.5%
-            and sas as 5% and platform fee as 0. You can select the one you know
-            or leave empty
+            don’t know the value -According to India Budget 2025,Above 1,25,000
+            tax as 12.5% and sas as 5% and platform fee as 0. You can select the
+            one you know or leave empty
           </p>
         </div>
         <!-- capital gain section ends here  -->
@@ -229,7 +229,7 @@
           </div>
           <div class="money-div">
             <h1 class="small-text">With Inflation</h1>
-            <h1 class="money gained">
+            <h1 id="headingLost" class="money gained">
               ₹ <span id="finalProfitfinal" class="gained">0</span>
             </h1>
           </div>

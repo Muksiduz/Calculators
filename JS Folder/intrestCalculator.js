@@ -100,7 +100,6 @@ class SIPCalculator {
   longTermCapitalGainTax(taxPercentage, sasTax) {
     taxPercentage = taxPercentage || 12.5;
 
-    console.log(taxPercentage);
     //tax exeption under 1 lakh
     if (this.profit >= 125000) {
       this.taxAmount = ((this.profit - 125000) * taxPercentage) / 100;
@@ -123,12 +122,12 @@ class SIPCalculator {
   finalProfitWithInflation(inflationRate) {
     let inflationAdjustedProfit = this.inflationAdjustedAmount(inflationRate);
     let adjustedProfit = inflationAdjustedProfit[0];
-    let profit = adjustedProfit - this.taxAmount - this.platformFee;
+    let profit =
+      adjustedProfit - this.investedAmount - this.taxAmount - this.platformFee;
 
     profit = Math.round(profit);
-    let profitIndian = this.finalAmountInIndianValue(profit);
 
-    return profitIndian;
+    return profit;
   }
   //upto here i have some problems
 
@@ -140,7 +139,8 @@ class SIPCalculator {
   }
 
   withInitalAmountSIPCalculate(initalAmount) {
-    this.p += initalAmount;
+    let initial = initalAmount || 0;
+    this.p += initial;
   }
   //think it after completing git hub and frotend - i know if implement it now i
   // will break the code beyond repair
@@ -158,6 +158,10 @@ const initalAmountValue = document.getElementById("initialAmountValue");
 const platformRateValue = document.getElementById("platformRate");
 const amountMonthlySpan = document.getElementById("AmountMontlySpan");
 const yearSpan = document.getElementById("yearSpan");
+// Select the h1 element
+const heading = document.getElementById("headingLost");
+// Select the span element
+const span = document.querySelector("span#finalProfitfinal.gained");
 
 const finalAmountDiv = document.getElementById("finalAmount");
 const investedAmount = document.getElementById("investedAmount");
@@ -172,9 +176,10 @@ const finalProfitInflation = document.getElementById("finalProfitfinal");
 const deductedInflationDiv = document.getElementById("deductedInflation");
 
 calculateBtn.addEventListener("click", () => {
-  const principalAmount = monthlyAmount.value;
-  const rate = intrestRate.value;
-  const noOfPayments = years.value;
+  const principalAmount = Number(monthlyAmount.value);
+  const rate = Number(intrestRate.value);
+  const noOfPayments = Number(years.value);
+  const initialAmount = Number(initalAmountValue.value);
 
   if (!principalAmount || !rate || !noOfPayments) {
     return alert("Please input principal amount,intrestrate and years");
@@ -212,14 +217,22 @@ calculateBtn.addEventListener("click", () => {
   const finalProfitWithoutInflation =
     monthyinvestment.finalProfitWithoutInflation();
 
-  const finalProfitWithInflation = monthyinvestment.finalProfitWithInflation(
+  let finalProfitWithInflation = monthyinvestment.finalProfitWithInflation(
     inflationInput.value
   );
-  if (!initalAmountValue.value) {
-    monthyinvestment.withInitalAmountSIPCalculate(0);
-  } else {
-    monthlyAmount.withInitalAmountSIPCalculate(initalAmountValue.value);
+  //for style changes
+  if (finalProfitWithInflation < 0) {
+    heading.classList.remove("gained");
+    span.classList.remove("gained");
+    heading.classList.add("lost");
+    span.classList.add("lost");
   }
+  //for adding the commas
+  finalProfitWithInflation = monthyinvestment.finalAmountInIndianValue(
+    finalProfitWithInflation
+  );
+
+  monthyinvestment.withInitalAmountSIPCalculate(initialAmount);
 
   finalAmountDiv.innerText = finalAmount;
   investedAmount.innerText = totalInvestedAmount;
