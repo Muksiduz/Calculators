@@ -206,6 +206,11 @@ calculateBtn.addEventListener("click", () => {
   let finalProfitWithInflation = monthyinvestment.finalProfitWithInflation(
     inflationInput.value
   );
+  if (!initalAmountValue.value) {
+    monthyinvestment.withInitalAmountSIPCalculate(0);
+  } else {
+    monthlyAmount.withInitalAmountSIPCalculate(initalAmountValue.value);
+  }
 
   finalAmountDiv.innerText = finalAmount;
   investedAmount.innerText = totalInvestedAmount;
