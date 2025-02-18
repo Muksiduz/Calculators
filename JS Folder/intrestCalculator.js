@@ -156,6 +156,8 @@ const inflationInput = document.getElementById("inflationInput");
 const longTaxValue = document.getElementById("longTax");
 const initalAmountValue = document.getElementById("initialAmountValue");
 const platformRateValue = document.getElementById("platformRate");
+const amountMonthlySpan = document.getElementById("AmountMontlySpan");
+const yearSpan = document.getElementById("yearSpan");
 
 const finalAmountDiv = document.getElementById("finalAmount");
 const investedAmount = document.getElementById("investedAmount");
@@ -170,9 +172,9 @@ const finalProfitInflation = document.getElementById("finalProfitfinal");
 const deductedInflationDiv = document.getElementById("deductedInflation");
 
 calculateBtn.addEventListener("click", () => {
-  let principalAmount = monthlyAmount.value;
-  let rate = intrestRate.value;
-  let noOfPayments = years.value;
+  const principalAmount = monthlyAmount.value;
+  const rate = intrestRate.value;
+  const noOfPayments = years.value;
 
   if (!principalAmount || !rate || !noOfPayments) {
     return alert("Please input principal amount,intrestrate and years");
@@ -183,27 +185,34 @@ calculateBtn.addEventListener("click", () => {
     rate,
     noOfPayments
   );
-  let finalAmount = monthyinvestment.monthlySIP();
-  let totalInvestedAmount = monthyinvestment.totalInvestedAmount();
-  let profits = monthyinvestment.totalProfit();
-  let inflations = monthyinvestment.inflationAdjustedAmount(
+
+  const principalAmountIndian =
+    monthyinvestment.finalAmountInIndianValue(principalAmount);
+  amountMonthlySpan.innerText = principalAmountIndian;
+
+  const finalAmount = monthyinvestment.monthlySIP();
+  const totalInvestedAmount = monthyinvestment.totalInvestedAmount();
+  const profits = monthyinvestment.totalProfit();
+  const inflations = monthyinvestment.inflationAdjustedAmount(
     inflationInput.value
   );
-  let inflationValue = monthyinvestment.finalAmountInIndianValue(inflations[0]);
-  let deductedInflation = monthyinvestment.deductedInflationAmount(
+  const inflationValue = monthyinvestment.finalAmountInIndianValue(
+    inflations[0]
+  );
+  const deductedInflation = monthyinvestment.deductedInflationAmount(
     inflationInput.value
   );
-  let deductedInflationAmount =
+  const deductedInflationAmount =
     monthyinvestment.finalAmountInIndianValue(deductedInflation);
-  let taxation = monthyinvestment.longTermCapitalGainTax(longTaxValue.value);
-  let platformRateValues = monthyinvestment.platformChargesReduction(
+  const taxation = monthyinvestment.longTermCapitalGainTax(longTaxValue.value);
+  const platformRateValues = monthyinvestment.platformChargesReduction(
     platformRateValue.value
   );
 
-  let finalProfitWithoutInflation =
+  const finalProfitWithoutInflation =
     monthyinvestment.finalProfitWithoutInflation();
 
-  let finalProfitWithInflation = monthyinvestment.finalProfitWithInflation(
+  const finalProfitWithInflation = monthyinvestment.finalProfitWithInflation(
     inflationInput.value
   );
   if (!initalAmountValue.value) {
@@ -221,4 +230,5 @@ calculateBtn.addEventListener("click", () => {
   platformFeeDiv.innerText = platformRateValues;
   finalProfitDiv.innerText = finalProfitWithoutInflation;
   finalProfitInflation.innerText = finalProfitWithInflation;
+  yearSpan.innerText = noOfPayments;
 });

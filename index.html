@@ -1,121 +1,245 @@
 <!DOCTYPE html>
-<link lang="en">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator Hub</title>
-    <link rel="stylesheet" href="./css Folder/style.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css Folder/newStyle.css" />
   </head>
   <body>
-    <div class="section">
-      <div class="main-container">
-        <div>
-          <label for="monthlyAmount">Monthly Investment</label>
-          <input id="monthlyAmount" class="input-box" type="text" />
-        </div>
-        <div class="two-box-flex">
-          <div>
-            <label>intrest rate</label>
-            <input id="rate" class="input-box" type="number" />
-          </div>
-          <div>
-            <label>years</label>
-            <input id="years" class="input-box" type="number" />
-          </div>
-        </div>
-        <div>
-          <label>inflation rate</label>
-          <input id="inflationInput" class="input-box" type="number" />
-        </div>
-        <div>
-          <label>initial amount</label>
-          <input id="initialAmountValue" class="input-box" type="number" />
-        </div>
-        <h1>Capital Gain Tax</h1>
-        <div class="two-box-flex">
-          <div>
-            <label>tax Percentage</label>
-            <input id="longTax" class="input-box" type="number" />
-          </div>
-          <div>
-            <label>SAS tax</label>
-            <input id="sasTax" class="input-box" type="number" />
-          </div>
-        </div>
-        <div>
-          <label>platform rate</label>
-          <input id="platformRate" class="input-box" type="number" />
-        </div>
-        <div class="btn-container">
-          <button id="calculateBtn" class="btn-calculate">hi</button>
+    <!-- started navigation from here  -->
+    <nav class="navigation">
+      <div class="logo">
+        <img class="logoImg" src="/assets//calculator.png" alt="" />
+        <h1 class="logoText">CALCUHUB</h1>
+      </div>
+
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+    <!-- navigation ended here  -->
+    <!-- main content section starts here  -->
+    <div class="main-content">
+      <!-- text section started from here  -->
+      <div class="sectionClass">
+        <h1 class="topHeading">Money Calculators</h1>
+        <h2 class="HeadingQuotes">
+          "The Calculation hub for everything that's related to money"
+        </h2>
+
+        <div class="selector">
+          <label class="selectLabels" for="calculators"
+            >Select your calculator</label
+          >
+
+          <select name="calculators" id="calculators">
+            <option class="activeSelector" value="SIP Calculator with Taxes">
+              SIP Calculator with Taxes
+            </option>
+            <option value="Income Tax Calculator">Income Tax Calculator</option>
+          </select>
         </div>
       </div>
-      <div class="side-values">
-        <div class="two-box-flex justify">
+      <!-- text section ended here  -->
+      <!-- the submittion part start's here  -->
+      <div class="form-div">
+        <div class="single-input">
+          <label class="form-labels" for=""
+            >Monthly Invested Amount<span>*</span></label
+          >
+          <input
+            class="long-inputs"
+            type="number"
+            id="monthlyAmount"
+            placeholder="Monthly Invested Amount"
+          />
+        </div>
+        <div class="two-inputs">
           <div>
-            <h1>Final amount</h1>
-            <h1>₹ <span id="finalAmount">0</span></h1>
+            <label class="form-labels" for="">Intrest Rate<span>*</span></label>
+            <input
+              class="long-inputs"
+              type="number"
+              id="rate"
+              placeholder="Intrest Rate in %"
+            />
           </div>
           <div>
-            <h1>Invested Amount</h1>
-            <h1>₹ <span id="investedAmount">0</span></h1>
+            <label class="form-labels" for="">Time Period<span>*</span></label>
+            <input
+              class="long-inputs"
+              type="number"
+              id="years"
+              placeholder="Time Period in Years"
+            />
           </div>
         </div>
-        <div class="single">
-          <h1>Profit</h1>
-          <h1>₹ <span id="profit">0</span></h1>
+        <div class="single-input">
+          <label class="form-labels" for="">Inflation Rate<span>*</span></label>
+          <input
+            class="long-inputs"
+            type="number"
+            id="inflationInput"
+            placeholder="Enter Inflation Rate : India 5.7%"
+          />
         </div>
-        <div class="two-box-flex justify">
+        <div class="single-input">
+          <label class="form-labels" for="">Initial Amount</label>
+          <input
+            class="long-inputs"
+            type="number"
+            id="initialAmountValue"
+            placeholder="Enter Initial Amount Invested"
+          />
+        </div>
+        <!-- for the capital gain section  -->
+        <div>
+          <h1 class="capitalGain">Capital Gain Tax</h1>
+          <p class="capitalGainPara">
+            Tax-Percentage, sas tax will be automatically calculated if you
+            don’t know the value -According to India Budget 2025, tax as 12.5%
+            and sas as 5% and platform fee as 0. You can select the one you know
+            or leave empty
+          </p>
+        </div>
+        <!-- capital gain section ends here  -->
+        <div class="two-inputs">
           <div>
-            <h1>Adjusted Inflation Amount</h1>
-            <h1>₹ <span id="inflations">0</span></h1>
+            <label class="form-labels" for="">Tax-Percentage</label>
+            <input
+              class="long-inputs"
+              type="number"
+              id="longTax"
+              placeholder="Enter Tax Percent"
+            />
           </div>
           <div>
-            <h1>Deducted Inflation Amount</h1>
-            <h1>₹ <span id="deductedInflation">0</span></h1>
+            <label class="form-labels" for="">SAS Tax</label>
+            <input
+              class="long-inputs"
+              type="number"
+              id="sasTax"
+              placeholder="Enter SAS Tax"
+            />
           </div>
         </div>
-        <div class="two-box-flex justify">
-          <div>
-            <h1>Tax amount</h1>
-            <h1>₹ <span id="tax">0</span></h1>
+        <div class="single-input">
+          <label class="form-labels" for="">Platform Rate</label>
+          <input
+            class="long-inputs"
+            type="number"
+            id="platformRate"
+            placeholder="Enter Platform Rate"
+          />
+        </div>
+        <!-- start of the button  -->
+        <div class="btnDiv">
+          <button id="calculateBtn" class="submitBtn">Calculate SIP</button>
+        </div>
+      </div>
+
+      <!-- the submission part ends here  -->
+
+      <!-- the value showing part will be here  -->
+      <div class="report-chart">
+        <!-- first two line at the top need amount and years  -->
+        <div class="chart-top">
+          <h1 class="written-text neutralFirst">
+            <span id="AmountMontlySpan" class="neutral">0</span> Invested Per
+            Month
+          </h1>
+          <h1 class="written-text">
+            Intrest Calculation For
+            <span id="yearSpan" class="neutral">0</span> Years
+          </h1>
+        </div>
+        <!-- first two lines ended here  -->
+        <!-- horizontal line is going to start here  -->
+        <div class="horizonal-line"></div>
+        <!-- horizontal line ends  -->
+        <!-- first investment  -->
+        <div>
+          <div class="money-div">
+            <h1 class="small-text">Future Investment value</h1>
+            <h1 class="money neutralFirst">
+              ₹ <span id="finalAmount" class="neutralFirst">0</span>
+            </h1>
           </div>
-          <div>
-            <h1>Platform Fee</h1>
-            <h1>₹ <span id="platformFee">0</span></h1>
+          <div class="money-div">
+            <h1 class="small-text">Invested Amount</h1>
+            <h1 class="money neutral">
+              ₹ <span id="investedAmount" class="neutral">0</span>
+            </h1>
+          </div>
+          <div class="money-div">
+            <h1 class="small-text">Profit</h1>
+            <h1 class="money gained">
+              ₹ <span id="profit" class="gained">0</span>
+            </h1>
+          </div>
+          <!-- first investment ends  -->
+          <div class="horizonal-line"></div>
+        </div>
+        <div class="chart-top">
+          <h1 class="written-text">Inflations Adjusted</h1>
+        </div>
+        <!-- second investment  -->
+        <div class="money-div">
+          <h1 class="small-text margin">Adjusted Inflation Amount</h1>
+          <h1 class="money neutral">
+            ₹ <span id="inflations" class="neutral">0</span>
+          </h1>
+        </div>
+        <div class="money-div">
+          <h1 class="small-text">Deducted Inflation Amount</h1>
+          <h1 class="money lost">
+            ₹ <span id="deductedInflation" class="lost">0</span>
+          </h1>
+        </div>
+        <div class="horizonal-line"></div>
+        <!-- third investmet here  -->
+        <div class="chart-top">
+          <h1 class="written-text">Tax and Platform Fees</h1>
+        </div>
+        <div class="flexing">
+          <div class="money-div">
+            <h1 class="small-text">Tax Amount</h1>
+            <h1 class="money lost">₹ <span id="tax" class="lost">0</span></h1>
+          </div>
+          <div class="money-div">
+            <h1 class="small-text">Platform Fees</h1>
+            <h1 class="money lost">
+              ₹ <span id="platformFee" class="lost">0</span>
+            </h1>
           </div>
         </div>
-        <div class="single">
-          <h1>Final Profit of Investment (without Inflation)</h1>
-          <h1>₹ <span id="finalProfit">0</span></h1>
+        <div class="horizonal-line"></div>
+        <div class="chart-top">
+          <h1 class="written-text">Final Profits</h1>
         </div>
-        <div class="single">
-          <h1>Final Profit of Investment (with Inflation)</h1>
-          <h1>₹ <span id="finalProfitfinal">0</span></h1>
-        </div>
-       
-        
-        <div class="horizontal-line"></div>
-        <div class="chart">
-          <div class="two-box-flex justify">
-            <button class="btn-calculate">Monthly chart</button>
-            <button class="btn-calculate">Yearly chart</button>
+        <div class="flexing">
+          <div class="money-div">
+            <h1 class="small-text">Without Inflation</h1>
+            <h1 class="money gained">
+              ₹ <span id="finalProfit" class="gained">0</span>
+            </h1>
           </div>
-          <div>
-            <h1>Monthly chart</h1>
-            <table class="table">
-              <tr>
-                <th>Invested amount</th>
-                <th>amount</th>
-                <th>returns</th>
-                <th>profits</th>
-              </tr>
-            </table>
+          <div class="money-div">
+            <h1 class="small-text">With Inflation</h1>
+            <h1 class="money gained">
+              ₹ <span id="finalProfitfinal" class="gained">0</span>
+            </h1>
           </div>
         </div>
       </div>
+      <!-- the value showing part ends here  -->
     </div>
+    <!-- main content ends here  -->
+
+    <!-- finally joining the js  -->
     <script src="./JS Folder//intrestCalculator.js"></script>
   </body>
-  
 </html>

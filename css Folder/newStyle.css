@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Noto Sans", serif;
+  /* font-family: "Inter", serif; */
+}
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  background: #000;
+  width: 100%;
+  height: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logoImg {
+  width: 33px;
+  height: 33px;
+}
+.logoText {
+  color: white;
+  font-weight: bolder;
+  font-size: 14px;
+  letter-spacing: 2px;
+  padding-left: 5px;
+}
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+.hamburger > div {
+  width: 20px;
+  height: 3px;
+  background: white;
+}
+@media only screen and (max-width: 600px) {
+  .navigation {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+/* for the select and top section starts here  */
+@media only screen and (max-width: 600px) {
+  .main-content {
+    margin: 20px 20px;
+  }
+  .topHeading {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  .HeadingQuotes {
+    font-size: 12px;
+    font-weight: normal;
+    color: gray;
+    margin-top: 10px;
+  }
+  .selector {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .selectLabels {
+    font-size: 12px;
+    font-weight: bold;
+    color: gray;
+    margin-top: 10px;
+  }
+  select {
+    width: 190px;
+    height: 22px;
+    border-radius: 14px;
+  }
+  .activeSelector {
+    font-size: 12px;
+    font-weight: bolder;
+  }
+  /* form section starts from here  */
+  .form-div {
+    width: 100%;
+    height: auto;
+    border-radius: 26px;
+    background: #ecebe4;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .single-input {
+  }
+  .two-inputs {
+    display: flex;
+    gap: 5px;
+  }
+  .form-labels {
+    font-size: 14px;
+    font-style: normal;
+  }
+  .long-inputs {
+    width: 100%;
+    height: 35px;
+    border-radius: 14px;
+    border: none;
+    box-shadow: 2px 2px 3px #888888;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    background: #eef0f2;
+  }
+  .capitalGain {
+    font-size: 20px;
+    font-weight: 800;
+    margin-top: 7px;
+    margin-bottom: 5px;
+  }
+  .capitalGainPara {
+    font-size: 10px;
+    font-weight: 300;
+    color: gray;
+    margin-bottom: 5px;
+  }
+  .btnDiv {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+  }
+  span {
+    color: red;
+  }
+  .submitBtn {
+    border: none;
+    width: 170px;
+    height: 45px;
+    background: #1c1c1c;
+    border-radius: 14px;
+    font-size: 10px;
+    color: white;
+    font-weight: 900;
+    letter-spacing: 1px;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  /* form section ends here  */
+  /* the data Showing section starts here  */
+  .report-chart {
+    width: 100%;
+    height: auto;
+    border-radius: 26px;
+    background: #1c1c1c;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .chart-top {
+  }
+  .written-text {
+    font-size: 20px;
+    color: #f1b427;
+    font-weight: 900;
+    text-align: center;
+  }
+  .horizonal-line {
+    width: 100%;
+    height: 1px;
+    background: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .money-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .small-text {
+    font-size: 13px;
+    margin-bottom: 2px;
+    color: white;
+  }
+  .money {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .neutralFirst {
+    color: #88a975;
+  }
+  .neutral {
+    color: white;
+  }
+  .gained {
+    color: #60da18;
+  }
+  .lost {
+    color: #f61919;
+  }
+  .flexing {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+  }
+  .margin {
+    margin-top: 10px;
+  }
+  input {
+    padding: 14px 20px;
+  }
+  /* the data Showing Section Ends Here  */
+}
