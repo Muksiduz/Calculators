@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<link lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Hub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="section">
+      <div class="main-container">
+        <div>
+          <label for="monthlyAmount">Monthly Investment</label>
+          <input id="monthlyAmount" class="input-box" type="text" />
+        </div>
+        <div class="two-box-flex">
+          <div>
+            <label>intrest rate</label>
+            <input id="rate" class="input-box" type="number" />
+          </div>
+          <div>
+            <label>years</label>
+            <input id="years" class="input-box" type="number" />
+          </div>
+        </div>
+        <div>
+          <label>inflation rate</label>
+          <input id="inflationInput" class="input-box" type="number" />
+        </div>
+        <div>
+          <label>initial amount</label>
+          <input id="initialAmountValue" class="input-box" type="number" />
+        </div>
+        <h1>Capital Gain Tax</h1>
+        <div class="two-box-flex">
+          <div>
+            <label>tax Percentage</label>
+            <input id="longTax" class="input-box" type="number" />
+          </div>
+          <div>
+            <label>SAS tax</label>
+            <input id="sasTax" class="input-box" type="number" />
+          </div>
+        </div>
+        <div>
+          <label>platform rate</label>
+          <input id="platformRate" class="input-box" type="number" />
+        </div>
+        <div class="btn-container">
+          <button id="calculateBtn" class="btn-calculate">hi</button>
+        </div>
+      </div>
+      <div class="side-values">
+        <div class="two-box-flex justify">
+          <div>
+            <h1>Final amount</h1>
+            <h1>₹ <span id="finalAmount">0</span></h1>
+          </div>
+          <div>
+            <h1>Invested Amount</h1>
+            <h1>₹ <span id="investedAmount">0</span></h1>
+          </div>
+        </div>
+        <div class="single">
+          <h1>Profit</h1>
+          <h1>₹ <span id="profit">0</span></h1>
+        </div>
+        <div class="two-box-flex justify">
+          <div>
+            <h1>Adjusted Inflation Amount</h1>
+            <h1>₹ <span id="inflations">0</span></h1>
+          </div>
+          <div>
+            <h1>Deducted Inflation Amount</h1>
+            <h1>₹ <span id="deductedInflation">0</span></h1>
+          </div>
+        </div>
+        <div class="two-box-flex justify">
+          <div>
+            <h1>Tax amount</h1>
+            <h1>₹ <span id="tax">0</span></h1>
+          </div>
+          <div>
+            <h1>Platform Fee</h1>
+            <h1>₹ <span id="platformFee">0</span></h1>
+          </div>
+        </div>
+        <div class="single">
+          <h1>Final Profit of Investment (without Inflation)</h1>
+          <h1>₹ <span id="finalProfit">0</span></h1>
+        </div>
+        <div class="single">
+          <h1>Final Profit of Investment (with Inflation)</h1>
+          <h1>₹ <span id="finalProfitfinal">0</span></h1>
+        </div>
+       
+        
+        <div class="horizontal-line"></div>
+        <div class="chart">
+          <div class="two-box-flex justify">
+            <button class="btn-calculate">Monthly chart</button>
+            <button class="btn-calculate">Yearly chart</button>
+          </div>
+          <div>
+            <h1>Monthly chart</h1>
+            <table class="table">
+              <tr>
+                <th>Invested amount</th>
+                <th>amount</th>
+                <th>returns</th>
+                <th>profits</th>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./JS Folder//intrestCalculator.js"></script>
+  </body>
+  
+</html>
