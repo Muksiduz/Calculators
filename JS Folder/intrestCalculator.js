@@ -1,5 +1,5 @@
 class SIPCalculator {
-  constructor(principalAmount, NumberOfPayments, rate) {
+  constructor(principalAmount, rate, NumberOfPayments) {
     this.p = principalAmount;
     this.n = NumberOfPayments;
     this.r = rate;
@@ -21,7 +21,9 @@ class SIPCalculator {
   finalAmountCollected() {
     {
       this.monthInvested = this.n * 12;
-      this.i = this.r / 100 / 12;
+      this.i = this.r / (100 * 12);
+      console.log(this.i);
+      console.log(this.r);
 
       this.finalValue +=
         this.p *
