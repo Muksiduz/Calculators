@@ -1,5 +1,5 @@
 class SIPCalculator {
-  constructor(principalAmount, rate, NumberOfPayments) {
+  constructor(principalAmount, rate, NumberOfPayments, initialAmount = 0) {
     this.p = principalAmount;
     this.n = NumberOfPayments;
     this.r = rate;
@@ -12,6 +12,11 @@ class SIPCalculator {
     this.yearlyAmount = 0;
     this.taxAmount = 0;
     this.platformFee = 0;
+    this.yearlyCompound = 1;
+    this.lumsum = 0;
+    this.investedInitialAmount = initialAmount || 0;
+    this.initalAmount = initialAmount;
+    this.withInitalAmountSIPCalculate(this.initalAmount);
     this.finalAmountCollected();
   }
   finalAmountInIndianValue(value) {
@@ -22,13 +27,13 @@ class SIPCalculator {
     {
       this.monthInvested = this.n * 12;
       this.i = this.r / (100 * 12);
-      console.log(this.i);
-      console.log(this.r);
 
       this.finalValue +=
         this.p *
         ((Math.pow(1 + this.i, this.monthInvested) - 1) / this.i) *
         (1 + this.i);
+
+      this.finalValue += this.lumsum;
     }
   }
   //monthly SIP Calculator
@@ -66,9 +71,9 @@ class SIPCalculator {
   }
 
   totalInvestedAmount() {
-    this.investedAmount = this.p * this.n * 12;
+    this.investedAmount = this.investedInitialAmount + this.p * this.n * 12;
     let TotalInIndianCurrency = this.finalAmountInIndianValue(
-      this.investedAmount
+      Math.round(this.investedAmount)
     );
     return TotalInIndianCurrency;
   }
@@ -79,13 +84,14 @@ class SIPCalculator {
   }
 
   inflationAdjustedAmount(inflationRate) {
-    inflationRate = inflationRate / 100;
+    let inflationRates = inflationRate || 4.31;
+    inflationRates = inflationRates / 100;
     let inlfationAdjustedPerYear = [];
     let afterInflationAmount = 0;
     let inflations = [];
     for (let i = 1; i <= this.n; i++) {
       afterInflationAmount =
-        this.finalValue / Math.pow(1 + inflationRate, this.n);
+        this.finalValue / Math.pow(1 + inflationRates, this.n);
       inlfationAdjustedPerYear.push(Math.round(afterInflationAmount));
     }
     inflations.push(Math.round(afterInflationAmount));
@@ -94,6 +100,7 @@ class SIPCalculator {
     return inflations;
   }
   deductedInflationAmount(inflationRate) {
+    inflationRate = inflationRate || 4.31;
     let inflation = this.inflationAdjustedAmount(inflationRate);
     inflation = this.finalValue - inflation[0];
     return inflation;
@@ -142,7 +149,17 @@ class SIPCalculator {
 
   withInitalAmountSIPCalculate(initalAmount) {
     let initial = initalAmount || 0;
-    this.p += initial;
+
+    if (initial !== 0) {
+      this.lumsum =
+        initial *
+        Math.pow(
+          1 + this.r / 100 / this.yearlyCompound,
+          this.yearlyCompound * this.n
+        );
+    } else {
+      this.lumsum = 0;
+    }
   }
   //think it after completing git hub and frotend - i know if implement it now i
   // will break the code beyond repair
@@ -190,7 +207,8 @@ calculateBtn.addEventListener("click", () => {
   const monthyinvestment = new SIPCalculator(
     principalAmount,
     rate,
-    noOfPayments
+    noOfPayments,
+    initialAmount
   );
 
   const principalAmountIndian =
@@ -233,8 +251,6 @@ calculateBtn.addEventListener("click", () => {
   finalProfitWithInflation = monthyinvestment.finalAmountInIndianValue(
     finalProfitWithInflation
   );
-
-  monthyinvestment.withInitalAmountSIPCalculate(initialAmount);
 
   finalAmountDiv.innerText = finalAmount;
   investedAmount.innerText = totalInvestedAmount;

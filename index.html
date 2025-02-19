@@ -77,15 +77,7 @@
             />
           </div>
         </div>
-        <div class="single-input">
-          <label class="form-labels" for="">Inflation Rate<span>*</span></label>
-          <input
-            class="long-inputs"
-            type="number"
-            id="inflationInput"
-            placeholder="Enter Inflation Rate : India 4.31%"
-          />
-        </div>
+
         <div class="single-input">
           <label class="form-labels" for="">Initial Amount</label>
           <input
@@ -99,13 +91,25 @@
         <div>
           <h1 class="capitalGain">Capital Gain Tax</h1>
           <p class="capitalGainPara">
-            Tax-Percentage, sas tax will be automatically calculated if you
-            don’t know the value -According to India Budget 2025,Above 1,25,000
-            tax as 12.5% and sas as 5% and platform fee as 0. You can select the
-            one you know or leave empty
+            Tax-Percentage, sas tax and inflation will be automatically
+            calculated if you don’t know the value -According to India Budget
+            2025,Above 1,25,000 tax as 12.5% and sas as 5% and platform fee as
+            0. Inflation rate as 4.31%. You can select the one you want to
+            change or leave empty
           </p>
         </div>
         <!-- capital gain section ends here  -->
+        <div class="single-input">
+          <label class="form-labels" for=""
+            >Inflation Rate (Calculated 4.31)</label
+          >
+          <input
+            class="long-inputs"
+            type="number"
+            id="inflationInput"
+            placeholder="Enter Inflation Rate : India 4.31%"
+          />
+        </div>
         <div class="two-inputs">
           <div>
             <label class="form-labels" for="">Tax-Percentage</label>
@@ -122,7 +126,7 @@
               class="long-inputs"
               type="number"
               id="sasTax"
-              placeholder="Enter SAS Tax"
+              placeholder="SAS Tax"
             />
           </div>
         </div>
